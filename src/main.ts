@@ -1,5 +1,7 @@
 let output: string = "";
 let isOn: boolean = false;
+
+
 const helloButton = document.querySelector("#but-hello");
 const acButton = document.querySelector("#but-ac");
 const byeButton = document.querySelector("#but-bye");
@@ -7,15 +9,18 @@ const equalButton = document.querySelector("#but-equal");
 const delButton = document.querySelector("#but-del");
 const numberButtons = document.querySelectorAll(".number");
 const hello_lst: string[] = ["Ciao", "Bonjour", "Guten Tag", "Salve", "Hola", "Ahoj"]
-const hello_lst_last_char: string[] = ["o", "r", "g", "e", "a", "j", 'i', 'n', 'f', 't', 'y', "N", ];
+const hello_lst_last_char: string[] = ["o", "r", "g", "e", "a", "j", 'i', 'n', 'f', 't', 'y', "N",];
 
 function ShowResult() {
   document.getElementById("screen")!.innerHTML = output;
 }
 
+
+
 function hello() {
   if (helloButton) {
     helloButton.addEventListener("click", () => {
+      if (isOn === false) return
       output = hello_lst[Math.floor(Math.random() * hello_lst.length)]
       ShowResult();
     });
@@ -26,8 +31,9 @@ function AC() {
   if (acButton) {
     acButton.addEventListener("click", () => {
       isOn = true;
-      output = "";
+      output = "0";
       ShowResult();
+      output = "";
     });
   }
 }
@@ -35,6 +41,7 @@ function AC() {
 function del() {
   if (delButton) {
     delButton!.addEventListener("click", () => {
+      if (isOn === false) return
       const char = output.charAt(output.length - 1);
       if (hello_lst_last_char.includes(char)) {
         output = ""
@@ -51,6 +58,7 @@ function del() {
 function bye() {
   if (byeButton) {
     byeButton.addEventListener("click", () => {
+      if (isOn === false) return
       output = "GoodBye";
       isOn = false;
       console.log(isOn);
@@ -71,6 +79,7 @@ function bye() {
 function handleNumberClick(n: string) {
   const char = output.charAt(output.length - 1);
   console.log("x" + char);
+  if (isOn === false) return
   if (output.length >= 8) return
   if (hello_lst_last_char.includes(char)) {
     output = n;
@@ -113,12 +122,13 @@ function calculate() {
   if (equalButton) {
     console.log("calculate pressed")
     equalButton!.addEventListener("click", () => {
+      if (isOn === false) return
       if (output.length === 0) return
       if (noDoubleOperators()) {
-        let  result = eval(output);
-        if (result % 1 !== 0){
+        let result = eval(output);
+        if (result % 1 !== 0) {
           result = result.toFixed(2)
-        } 
+        }
         console.log(result + "evaluated")
         output = result
         output = output.toString();
