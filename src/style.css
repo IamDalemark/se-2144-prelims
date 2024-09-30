@@ -1,0 +1,89 @@
+body {
+  background-color: #b4b4b4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure full height is used for centering */
+  margin: 0; /* Remove default margin */
+}
+
+.app {
+  margin-top: 5%;
+  background-color: rgb(96, 113, 98);
+  width: 20rem;
+  max-width: 90%;
+  height: 30rem;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  border-radius: 5%;
+}
+
+#calculator_screen {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: white;
+  border-radius: 10%;
+  width: 90%;
+  height: 20%;
+  padding: 5%;
+  box-sizing: border-box; 
+}
+
+#screen {
+  display: flex;
+  justify-content: right;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  background-color: rgb(62, 61, 61);
+}
+
+.first_row,
+.second_row,
+.third_row,
+.fourth_row,
+.fifth_row,
+.sixth_row {
+  display: flex;
+  justify-content: space-around; 
+  align-items: center;
+  width: 100%;
+}
+
+button {
+  flex: 1; 
+  margin: 5px; 
+  padding: 10px; 
+  font-size: 1.2rem; 
+  background-color: #04AA6D;
+  
+}
+
+button:hover {
+  background-color: #3e8e41
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+/* to implement later */
+/* calculator should shake when error pops. */
+.app:after {
+  animation: tilt-shaking .3s infinite;
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
