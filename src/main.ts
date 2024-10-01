@@ -48,9 +48,9 @@ function del() {
       }
       else if (output.length >= 1) {
         output = output.slice(0, -1);
-        console.log(output)
+        console.log(output);
       }
-      ShowResult()
+      ShowResult();
     })
   }
 }
@@ -64,7 +64,7 @@ function bye() {
       console.log(isOn);
       ShowResult();
       setTimeout(() => {
-        output = ":("
+        output = ":(";
         ShowResult()
       }, 1000);
       setTimeout(() => {
@@ -130,7 +130,7 @@ function calculate() {
           result = result.toFixed(2)
         }
         console.log(result + "evaluated")
-        output = result
+        output = result;
         output = output.toString();
         ShowResult();
       } else {
@@ -138,7 +138,7 @@ function calculate() {
         // document.querySelector(".app")
         console.log(output);
         ShowResult();
-        output = ""
+        output = "";
       }
     }
     )
