@@ -1,3 +1,4 @@
+// global variables
 let output: string = "";
 let isOn: boolean = false;
 
@@ -7,6 +8,7 @@ const acButton = document.querySelector("#but-ac");
 const byeButton = document.querySelector("#but-bye");
 const equalButton = document.querySelector("#but-equal");
 const delButton = document.querySelector("#but-del");
+const elem = document.querySelector(".app");
 const numberButtons = document.querySelectorAll(".number");
 const hello_lst: string[] = ["Ciao", "Bonjour", "Guten Tag", "Salve", "Hola", "Ahoj"]
 const hello_lst_last_char: string[] = ["o", "r", "g", "e", "a", "j", 'i', 'n', 'f', 't', 'y', "N",];
@@ -69,6 +71,7 @@ function bye() {
       }, 1000);
       setTimeout(() => {
         output = "";
+        cssVibration()
         ShowResult();
       }, 2000);
     });
@@ -117,6 +120,13 @@ function noDoubleOperators(): boolean {
   return true;
 }
 
+function cssVibration() {
+  elem!.classList.add("errorAnimation");
+  setTimeout(() => {
+    elem!.classList.remove("errorAnimation");
+  }, 200);
+}
+
 
 function calculate() {
   if (equalButton) {
@@ -135,9 +145,9 @@ function calculate() {
         ShowResult();
       } else {
         output = "Error";
-        // document.querySelector(".app")
         console.log(output);
         ShowResult();
+        cssVibration()
         output = "";
       }
     }
