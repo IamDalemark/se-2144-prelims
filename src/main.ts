@@ -13,6 +13,8 @@ const numberButtons = document.querySelectorAll(".number");
 const hello_lst: string[] = ["Ciao", "Bonjour", "Guten Tag", "Salve", "Hola", "Ahoj"]
 const hello_lst_last_char: string[] = ["o", "r", "g", "e", "a", "j", 'i', 'n', 'f', 't', 'y', "N",];
 
+
+// to display screen
 function ShowResult() {
   document.getElementById("screen")!.innerHTML = output;
 }
@@ -23,7 +25,7 @@ function hello() {
   if (helloButton) {
     helloButton.addEventListener("click", () => {
       if (isOn === false) return
-      output = hello_lst[Math.floor(Math.random() * hello_lst.length)]
+      output = hello_lst[Math.floor(Math.random() * hello_lst.length)] // random hello
       ShowResult();
     });
   }
@@ -57,6 +59,7 @@ function del() {
   }
 }
 
+// turnoff
 function bye() {
   if (byeButton) {
     byeButton.addEventListener("click", () => {
@@ -78,7 +81,7 @@ function bye() {
   }
 }
 
-
+// concat string
 function handleNumberClick(n: string) {
   const char = output.charAt(output.length - 1);
   console.log("x" + char);
@@ -102,7 +105,7 @@ numberButtons.forEach((button) => {
   });
 });
 
-
+// checks for double operators and errors
 function noDoubleOperators(): boolean {
   const operators: string[] = ["+", "-", "/", "*", "."];
   const operators_no_minus: string[] = ["+", "/", "*", "."];
@@ -119,7 +122,7 @@ function noDoubleOperators(): boolean {
   console.log("found none");
   return true;
 }
-
+// mainly for vibraton
 function cssVibration() {
   elem!.classList.add("errorAnimation");
   setTimeout(() => {
